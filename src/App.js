@@ -2,7 +2,6 @@ import React from 'react'
 import panda from './img/panda.png'
 import './App.css'
 import ActivityCard from './components/ActivityCard'
-import PetCard from './components/PetCard'
 import RestaurantCard from './components/RestaurantCard'
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
 
 			<div className="App-body">
 				<ActivityCard />
-				<PetCard />
 				<RestaurantCard />
 			</div>
 		</div>

@@ -21,3 +21,23 @@ code {
 	color: black;
 	text-decoration: none;
 }
+
+.pet-card {
+	display: inline-flex;
+	padding: 5px;
+	margin: 5px;
+	width: 150px;
+}
+
+.pet-refresh {
+	margin-bottom: 5px;
+}
+
+.card-title a {
+	color: black;
+	text-decoration: none;
+}
+
+.card-text div {
+	font-size: 12px;
+}

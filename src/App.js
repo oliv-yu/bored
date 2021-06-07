@@ -3,6 +3,7 @@ import panda from './img/panda.png'
 import './App.css'
 import ActivityCard from './components/ActivityCard'
 import BusinessCard from './components/BusinessCard'
+import PetCard from './components/PetCard'
 
 function App() {
 	return (
@@ -14,6 +15,7 @@ function App() {
 
 			<div className="App-body">
 				<ActivityCard />
+				<PetCard />
 				<BusinessCard />
 			</div>
 		</div>

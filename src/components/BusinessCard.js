@@ -1,20 +1,19 @@
 import React, { useState } from 'react'
 import Card from './Card'
-import DisplayMap from './DisplayMap'
+import DisplayMap from './utils/DisplayMap'
 import axios from 'axios'
-import { getCurrentPosition } from './utils'
-
-const CORS_PROXY = 'https://ancient-escarpment-84180.herokuapp.com/'
+import { getCurrentPosition } from './utils/utils'
+import { CORS_PROXY } from './utils/constants'
 
 function BusinessCard() {
-	const [center, setCenter] = useState({ lat: 40.75, lng: -73.98 })
+	const [location, setLocation] = useState({ lat: 40.75, lng: -73.98 })
 	const [businesses, setBusinesses] = useState([])
 
 	const _setCurrentLocation = async () => {
 		try {
 			const { coords } = await getCurrentPosition()
 
-			setCenter({ lat: coords.latitude, lng: coords.longitude })
+			setLocation({ lat: coords.latitude, lng: coords.longitude })
 		} catch (error) {
 			console.log(error)
 		}
@@ -47,7 +46,7 @@ function BusinessCard() {
 	return (
 		<Card size="lg" title="GO SOMEWHERE">
 			<DisplayMap
-				center={center}
+				center={location}
 				markers={businesses.map((item) => ({
 					coordinate: {
 						lat: item.coordinates.latitude,
@@ -60,7 +59,10 @@ function BusinessCard() {
 				refreshMarkers={_getBusinesses}
 			/>
 
-			<button onClick={() => _setCurrentLocation()}>
+			<button
+				onClick={() => _setCurrentLocation()}
+				className="btn btn-primary btn-sm"
+			>
 				Get Current Location
 			</button>
 

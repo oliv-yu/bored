@@ -2,8 +2,12 @@ import React, { Component } from 'react'
 import { getSVG } from './utils'
 
 class DisplayMap extends Component {
-	mapRef = React.createRef()
-	state = { behavior: null, ui: null, map: null }
+	constructor(props) {
+		super(props)
+
+		this.mapRef = React.createRef()
+		this.state = { behavior: null, ui: null, map: null }
+	}
 
 	generateMap() {
 		const H = window.H
@@ -65,6 +69,7 @@ class DisplayMap extends Component {
 				/>
 
 				<button
+					className="btn btn-primary btn-sm"
 					onClick={() => {
 						this.props.refreshMarkers(this.state.map.getCenter())
 					}}

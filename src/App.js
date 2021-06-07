@@ -2,7 +2,7 @@ import React from 'react'
 import panda from './img/panda.png'
 import './App.css'
 import ActivityCard from './components/ActivityCard'
-import RestaurantCard from './components/RestaurantCard'
+import BusinessCard from './components/BusinessCard'
 
 function App() {
 	return (
@@ -14,7 +14,7 @@ function App() {
 
 			<div className="App-body">
 				<ActivityCard />
-				<RestaurantCard />
+				<BusinessCard />
 			</div>
 		</div>
 	)

@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import Card from './Card'
-import { getCurrentPosition } from './utils'
 import DisplayMap from './DisplayMap'
 import axios from 'axios'
+import { getCurrentPosition } from './utils'
 
 const CORS_PROXY = 'https://ancient-escarpment-84180.herokuapp.com/'
 
-function RestaurantCard() {
+function BusinessCard() {
 	const [center, setCenter] = useState({ lat: 40.75, lng: -73.98 })
 	const [businesses, setBusinesses] = useState([])
 
@@ -20,7 +20,7 @@ function RestaurantCard() {
 		}
 	}
 
-	const _getRestaurants = ({ lat, lng }) => {
+	const _getBusinesses = ({ lat, lng }) => {
 		axios
 			.get(`${CORS_PROXY}https://api.yelp.com/v3/businesses/search`, {
 				headers: {
@@ -45,14 +45,19 @@ function RestaurantCard() {
 	}
 
 	return (
-		<Card size="lg" title="EAT SOMEWHERE">
+		<Card size="lg" title="GO SOMEWHERE">
 			<DisplayMap
 				center={center}
 				markers={businesses.map((item) => ({
-					lat: item.coordinates.latitude,
-					lng: item.coordinates.longitude,
+					coordinate: {
+						lat: item.coordinates.latitude,
+						lng: item.coordinates.longitude,
+					},
+					html:
+						`<div><img src=${item.image_url} class="business-img" alt="${item.name}"></div>` +
+						`<div><a class="business-title" href=${item.url} target="_blank">${item.name}</a></div>`,
 				}))}
-				refreshMarkers={_getRestaurants}
+				refreshMarkers={_getBusinesses}
 			/>
 
 			<button onClick={() => _setCurrentLocation()}>
@@ -91,4 +96,4 @@ function RestaurantCard() {
 	)
 }
 
-export default RestaurantCard
+export default BusinessCard

@@ -1,23 +1,11 @@
 import React, { useState } from 'react'
-import Card from './Card'
+import Card from './utils/Card'
 import DisplayMap from './utils/DisplayMap'
 import axios from 'axios'
-import { getCurrentPosition } from './utils/utils'
 import { CORS_PROXY } from './utils/constants'
 
-function BusinessCard() {
-	const [location, setLocation] = useState({ lat: 40.75, lng: -73.98 })
+function BusinessCard({ location }) {
 	const [businesses, setBusinesses] = useState([])
-
-	const _setCurrentLocation = async () => {
-		try {
-			const { coords } = await getCurrentPosition()
-
-			setLocation({ lat: coords.latitude, lng: coords.longitude })
-		} catch (error) {
-			console.log(error)
-		}
-	}
 
 	const _getBusinesses = ({ lat, lng }) => {
 		axios
@@ -54,17 +42,10 @@ function BusinessCard() {
 					},
 					html:
 						`<div><img src=${item.image_url} class="business-img" alt="${item.name}"></div>` +
-						`<div><a class="business-title" href=${item.url} target="_blank">${item.name}</a></div>`,
+						`<div><a class="business-title" href=${item.url} target="_blank" rel="noopener noreferrer">${item.name}</a></div>`,
 				}))}
 				refreshMarkers={_getBusinesses}
 			/>
-
-			<button
-				onClick={() => _setCurrentLocation()}
-				className="btn btn-primary btn-sm"
-			>
-				Get Current Location
-			</button>
 
 			<div className="list-group">
 				{businesses.map((business, index) => {

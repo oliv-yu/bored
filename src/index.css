@@ -24,13 +24,8 @@ code {
 
 .pet-card {
 	display: inline-flex;
-	padding: 5px;
 	margin: 5px;
 	width: 150px;
-}
-
-.pet-refresh {
-	margin-bottom: 5px;
 }
 
 .card-title a {

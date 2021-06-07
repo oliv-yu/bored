@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import Card from './Card'
-import { getCurrentPosition } from './utils/utils'
+import Card from './utils/Card'
 import { CORS_PROXY } from './utils/constants'
 const axios = require('axios')
 
@@ -9,21 +8,8 @@ class PetCard extends Component {
 		super(props)
 
 		this.state = {
-			location: { lat: 40.75, lng: -73.98 },
 			page: 1,
 			petList: [],
-		}
-	}
-
-	_setCurrentLocation = async () => {
-		try {
-			const { coords } = await getCurrentPosition()
-
-			this.setState({
-				location: { lat: coords.latitude, lng: coords.longitude },
-			})
-		} catch (error) {
-			console.error(error)
 		}
 	}
 
@@ -34,8 +20,9 @@ class PetCard extends Component {
 					Authorization: `Bearer ${process.env.REACT_APP_PETFINDER_ACCESS_TOKEN}`,
 				},
 				params: {
+					distance: 20,
 					type: 'cat',
-					location: `${this.state.location.lat}, ${this.state.location.lng}`,
+					location: `${this.props.location.lat}, ${this.props.location.lng}`,
 					limit: 10,
 					page: this.state.page,
 				},
@@ -52,27 +39,22 @@ class PetCard extends Component {
 			.catch(console.log)
 	}
 
-	componentDidMount() {
-		this._setCurrentLocation()
+	componentDidUpdate(prevProps) {
+		if (
+			this.props.location !== prevProps.location &&
+			this.state.petList.length > 0
+		) {
+			this.setState({ page: 1 })
+
+			this._getAnimals()
+		}
 	}
 
 	render() {
 		const { petList } = this.state
 
 		return (
-			<Card size="lg" buttonText="Next" title="Adopt a Cat!">
-				<div className="pet-refresh">
-					<button
-						onClick={() => {
-							this._getAnimals()
-							this.setState((state) => ({ page: state.page + 1 }))
-						}}
-						className="btn btn-primary btn-sm"
-					>
-						Find a buddy!
-					</button>
-				</div>
-
+			<Card size="lg" buttonText="Next" title="VISIT A PET">
 				{petList.map(
 					(item, idx) =>
 						item.photos?.[0]?.medium && (
@@ -102,6 +84,18 @@ class PetCard extends Component {
 							</div>
 						)
 				)}
+
+				<div>
+					<button
+						onClick={() => {
+							this._getAnimals()
+							this.setState((state) => ({ page: state.page + 1 }))
+						}}
+						className="btn btn-primary btn-sm"
+					>
+						Find a buddy!
+					</button>
+				</div>
 			</Card>
 		)
 	}

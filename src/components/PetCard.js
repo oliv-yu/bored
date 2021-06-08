@@ -30,8 +30,6 @@ class PetCard extends Component {
 				credentials: 'include',
 			})
 			.then((result) => {
-				console.log(result.data.animals)
-
 				this.setState({
 					petList: result.data.animals,
 				})

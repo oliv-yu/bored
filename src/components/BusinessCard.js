@@ -22,10 +22,6 @@ function BusinessCard({ location }) {
 				credentials: 'include',
 			})
 			.then((result) => {
-				let list = result.data.businesses
-
-				console.log(list)
-
 				setBusinesses(result.data.businesses)
 			})
 			.catch(console.log)

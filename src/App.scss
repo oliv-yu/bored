@@ -39,3 +39,22 @@
 .App-card-lg {
 	width: 800px;
 }
+
+.App-search {
+	margin: auto;
+	width: 800px;
+
+	.btn {
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+		width: 200px;
+	}
+
+	.dropdown {
+		width: calc(100% - 200px);
+
+		.dropdown-menu {
+			width: 100%;
+		}
+	}
+}

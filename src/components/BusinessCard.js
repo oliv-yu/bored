@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Card from './utils/Card'
-import DisplayMap from './utils/DisplayMap'
+import Card from './shared/Card'
+import DisplayMap from './shared/DisplayMap'
 import axios from 'axios'
 import { CORS_PROXY } from './utils/constants'
 
@@ -28,7 +28,7 @@ function BusinessCard({ location }) {
 	}
 
 	return (
-		<Card size="lg" title="GO SOMEWHERE">
+		<Card type="business" size="lg" title="GO SOMEWHERE">
 			<DisplayMap
 				center={location}
 				markers={businesses.map((item) => ({
@@ -48,8 +48,10 @@ function BusinessCard({ location }) {
 					return (
 						<a
 							href={business.url}
+							target="_blank"
 							className="App-card-text list-group-item list-group-item-action flex-column align-items-start"
 							key={index}
+							rel="noopener noreferrer"
 						>
 							<div className="d-flex w-100 justify-content-between">
 								<h5 className="mb-1">

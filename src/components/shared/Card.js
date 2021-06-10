@@ -1,10 +1,18 @@
 import React from 'react'
 
-function Card({ buttonText, children, onClick, size, title }) {
+function Card({
+	buttonText,
+	children,
+	onClick,
+	size = 'lg',
+	title,
+	type = 'general',
+	...props
+}) {
 	return (
-		<div className={`App-card App-card-${size ? size : 'sm'} card`}>
+		<div className={`card card-${size} ${type}-card`} {...props}>
 			<div className="card-body">
-				{title && <p className="App-card-title card-title">{title}</p>}
+				{title && <p className="card-title">{title}</p>}
 
 				{children}
 

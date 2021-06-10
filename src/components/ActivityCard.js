@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Card from './utils/Card'
+import Card from './shared/Card'
 
 function ActivityCard() {
 	const [activity, setActivity] = useState()
@@ -13,7 +13,7 @@ function ActivityCard() {
 			.catch(console.log)
 	}
 	return (
-		<Card title="DO SOMETHING">
+		<Card size="lg" title="DO SOMETHING">
 			<p className="App-card-text card-text">{activity}</p>
 
 			<button onClick={_handleFetchActivity} className="btn btn-primary btn-sm">

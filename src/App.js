@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import panda from './img/panda.png'
-import './App.scss'
 import axios from 'axios'
 import ActivityCard from './components/ActivityCard'
 import BusinessCard from './components/BusinessCard'
@@ -72,54 +71,58 @@ function App() {
 	return (
 		<div className="App">
 			<header className="App-header">
-				<img src={panda} className="App-logo" alt="logo" />
-				Feeling Bored?
+				<img src={panda} alt="bored-panda" />
+				<span>Feeling Bored?</span>
 			</header>
 
-			<div className="App-search input-group mb-3">
-				<div className="dropdown">
-					<input
-						type="text"
-						className="form-control dropdown-toggle"
-						placeholder="Search a place"
-						aria-label="Search a place"
-						onChange={_handleInputChange}
-						value={keyword}
-					/>
-
-					{autocompleteList.length > 0 && (
-						<div
-							className="dropdown-menu show"
-							aria-labelledby="autocomplete-list"
-						>
-							{autocompleteList.map((item) => (
-								<button
-									key={item.id}
-									className="dropdown-item"
-									onClick={() => _handleOnClickCity(item.id)}
-									type="button"
-								>
-									{item.title}
-								</button>
-							))}
-						</div>
-					)}
-				</div>
-
-				<div className="input-group-append">
-					<button
-						onClick={_setCurrentLocation}
-						className="btn btn-outline-secondary"
-					>
-						Use Current Location
-					</button>
-				</div>
-			</div>
-
 			<div className="App-body">
-				<ActivityCard />
-				<PetCard location={location} />
-				<BusinessCard location={location} />
+				<div className="App-search">
+					<div className="input-group mb-3">
+						<div className="dropdown">
+							<input
+								type="text"
+								className="form-control dropdown-toggle"
+								placeholder="Search a place"
+								aria-label="Search a place"
+								onChange={_handleInputChange}
+								value={keyword}
+							/>
+
+							{autocompleteList.length > 0 && (
+								<div
+									className="dropdown-menu show"
+									aria-labelledby="autocomplete-list"
+								>
+									{autocompleteList.map((item) => (
+										<button
+											key={item.id}
+											className="dropdown-item"
+											onClick={() => _handleOnClickCity(item.id)}
+											type="button"
+										>
+											{item.title}
+										</button>
+									))}
+								</div>
+							)}
+						</div>
+
+						<div className="input-group-append">
+							<button
+								onClick={_setCurrentLocation}
+								className="btn btn-outline-secondary"
+							>
+								Use Current Location
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<div className="App-cards">
+					<ActivityCard />
+					<PetCard location={location} />
+					<BusinessCard location={location} />
+				</div>
 			</div>
 		</div>
 	)

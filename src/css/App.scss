@@ -1,0 +1,40 @@
+.App {
+	text-align: center;
+	font-family: 'Noto Sans', sans-serif;
+
+	.App-header {
+		align-items: center;
+		color: #000;
+		font-size: 40px;
+		font-weight: bold;
+		justify-content: center;
+		margin: 40px 0;
+
+		img {
+			height: 50px;
+		}
+
+		span {
+			margin-left: 10px;
+		}
+	}
+
+	.App-search {
+		margin: auto;
+		width: 800px;
+
+		.btn {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+			width: 200px;
+		}
+
+		.dropdown {
+			width: calc(100% - 200px);
+
+			.dropdown-menu {
+				width: 100%;
+			}
+		}
+	}
+}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { getSVG } from './utils'
+import { getSVG } from '../utils/utils'
 
 class DisplayMap extends Component {
 	constructor(props) {

@@ -13,26 +13,5 @@ code {
 		monospace;
 }
 
-.business-img {
-	width: 150px;
-}
-
-.business-title {
-	color: black;
-	text-decoration: none;
-}
-
-.pet-card {
-	display: inline-flex;
-	margin: 5px;
-	width: 150px;
-}
-
-.card-title a {
-	color: black;
-	text-decoration: none;
-}
-
-.card-text div {
-	font-size: 12px;
-}
+@import './App.scss';
+@import './Card.scss';

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Card from './utils/Card'
+import Card from './shared/Card'
 import { CORS_PROXY } from './utils/constants'
 const axios = require('axios')
 
@@ -52,11 +52,11 @@ class PetCard extends Component {
 		const { petList } = this.state
 
 		return (
-			<Card size="lg" buttonText="Next" title="VISIT A PET">
+			<Card size="lg" buttonText="Next" title="VISIT A PET" type="pet">
 				{petList.map(
 					(item, idx) =>
 						item.photos?.[0]?.medium && (
-							<div key={idx} className="card pet-card">
+							<div key={idx} className="card single-pet">
 								{item.photos[0] && (
 									<img
 										className="card-img-top"

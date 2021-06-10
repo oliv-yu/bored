@@ -40,9 +40,7 @@ class DisplayMap extends Component {
 
 	componentDidUpdate(prevProps) {
 		if (this.props.center !== prevProps.center) {
-			this.state.map.dispose()
-
-			this.generateMap()
+			this.state.map.setCenter(this.props.center)
 		}
 
 		if (this.props.markers !== prevProps.markers) {

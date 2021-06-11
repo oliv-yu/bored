@@ -11,6 +11,7 @@ function App() {
 	const [location, setLocation] = useState({ lat: 40.75, lng: -73.98 })
 	const [keyword, setKeyword] = useState('')
 	const [autocompleteList, setAutocompleteList] = useState([])
+	const [focus, setFocus] = useState(-1)
 
 	const _setCurrentLocation = async () => {
 		try {
@@ -50,6 +51,20 @@ function App() {
 		}
 	}
 
+	const _handleKeyPress = (event) => {
+		if (event.key === 'ArrowUp') {
+			setFocus(focus === -1 ? autocompleteList.length - 1 : focus - 1)
+		}
+
+		if (event.key === 'ArrowDown') {
+			setFocus(focus === autocompleteList.length - 1 ? -1 : focus + 1)
+		}
+
+		if (event.key === 'Enter' && focus > -1) {
+			_handleOnClickCity(autocompleteList[focus].id)
+		}
+	}
+
 	const _handleOnClickCity = (id) => {
 		axios
 			.get(`${CORS_PROXY}https://lookup.search.hereapi.com/v1/lookup`, {
@@ -64,6 +79,7 @@ function App() {
 				setLocation(result.data.position)
 				setKeyword(result.data.title)
 				setAutocompleteList([])
+				setFocus(-1)
 			})
 			.catch(console.log)
 	}
@@ -85,6 +101,7 @@ function App() {
 								placeholder="Search a place"
 								aria-label="Search a place"
 								onChange={_handleInputChange}
+								onKeyDown={_handleKeyPress}
 								value={keyword}
 							/>
 
@@ -93,10 +110,13 @@ function App() {
 									className="dropdown-menu show"
 									aria-labelledby="autocomplete-list"
 								>
-									{autocompleteList.map((item) => (
+									{autocompleteList.map((item, idx) => (
 										<button
 											key={item.id}
-											className="dropdown-item"
+											onMouseEnter={() => setFocus(idx)}
+											className={
+												idx === focus ? 'active dropdown-item' : 'dropdown-item'
+											}
 											onClick={() => _handleOnClickCity(item.id)}
 											type="button"
 										>

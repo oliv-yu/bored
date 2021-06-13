@@ -97,7 +97,7 @@ function Bored() {
 						onClick={_setCurrentLocation}
 						className="btn btn-primary btn-sm"
 					>
-						<i class="bi bi-geo-alt"></i>
+						<i className="bi bi-geo-alt"></i>
 						Use Current Location
 					</button>
 

@@ -125,6 +125,7 @@ function Bored() {
 											className={
 												idx === focus ? 'active dropdown-item' : 'dropdown-item'
 											}
+											onTouchStart={() => _handleOnClickCity(item.id)}
 											onClick={() => _handleOnClickCity(item.id)}
 											type="button"
 										>

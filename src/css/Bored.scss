@@ -1,14 +1,14 @@
-.App {
+.bored-app {
 	text-align: center;
 	font-family: 'Noto Sans', sans-serif;
 
-	.App-header {
+	header {
 		align-items: center;
-		color: #000;
+		color: #000000;
 		font-size: 40px;
 		font-weight: bold;
 		justify-content: center;
-		margin: 40px 0;
+		margin: 20px 0;
 
 		img {
 			height: 50px;
@@ -19,18 +19,16 @@
 		}
 	}
 
-	.App-search {
+	.bored-search {
 		margin: auto;
-		width: 800px;
+		width: $lg-card-width;
 
 		.btn {
-			border-top-left-radius: 0;
-			border-bottom-left-radius: 0;
-			width: 200px;
+			margin-bottom: 10px;
 		}
 
 		.dropdown {
-			width: calc(100% - 200px);
+			width: 100%;
 
 			&:focus-within {
 				.dropdown-menu {
@@ -47,11 +45,23 @@
 					color: #1e2125;
 				}
 			}
+		}
+	}
+}
 
-			input {
-				border-top-right-radius: 0;
-				border-bottom-right-radius: 0;
-			}
+@media only screen and (max-width: 600px) {
+	.bored-app {
+		header {
+			font-size: 32px;
+			margin: 10px 0;
+		}
+
+		.bored-body {
+			margin: 10px;
+		}
+
+		.bored-search {
+			max-width: 100%;
 		}
 	}
 }

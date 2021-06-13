@@ -1,5 +1,5 @@
 .card {
-	margin: 10px auto 30px auto;
+	margin: 10px auto 20px auto;
 
 	&.card-sm {
 		font-size: 20px;
@@ -7,7 +7,7 @@
 	}
 
 	&.card-lg {
-		width: 800px;
+		width: $lg-card-width;
 	}
 
 	.card-title {
@@ -45,5 +45,11 @@
 		.card-text div {
 			font-size: 12px;
 		}
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.card {
+		max-width: 100%;
 	}
 }

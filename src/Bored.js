@@ -7,7 +7,7 @@ import PetCard from './components/PetCard'
 import { getCurrentPosition } from './components/utils/utils'
 import { CORS_PROXY } from './components/utils/constants'
 
-function App() {
+function Bored() {
 	const [location, setLocation] = useState({ lat: 40.75, lng: -73.98 })
 	const [keyword, setKeyword] = useState('')
 	const [autocompleteList, setAutocompleteList] = useState([])
@@ -85,14 +85,22 @@ function App() {
 	}
 
 	return (
-		<div className="App">
-			<header className="App-header">
+		<div className="bored-app">
+			<header>
 				<img src={panda} alt="bored-panda" />
 				<span>Feeling Bored?</span>
 			</header>
 
-			<div className="App-body">
-				<div className="App-search">
+			<div className="bored-body">
+				<div className="bored-search">
+					<button
+						onClick={_setCurrentLocation}
+						className="btn btn-primary btn-sm"
+					>
+						<i class="bi bi-geo-alt"></i>
+						Use Current Location
+					</button>
+
 					<div className="input-group mb-3">
 						<div className="dropdown">
 							<input
@@ -126,26 +134,17 @@ function App() {
 								</div>
 							)}
 						</div>
-
-						<div className="input-group-append">
-							<button
-								onClick={_setCurrentLocation}
-								className="btn btn-outline-secondary"
-							>
-								Use Current Location
-							</button>
-						</div>
 					</div>
 				</div>
 
-				<div className="App-cards">
-					<ActivityCard />
-					<PetCard location={location} />
-					<BusinessCard location={location} />
-				</div>
+				<ActivityCard />
+
+				<PetCard location={location} />
+
+				<BusinessCard location={location} />
 			</div>
 		</div>
 	)
 }
 
-export default App
+export default Bored

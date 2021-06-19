@@ -34,7 +34,7 @@ class PetCard extends Component {
 					petList: result.data.animals,
 				})
 			})
-			.catch(console.log)
+			.catch((error) => console.log(error))
 	}
 
 	componentDidUpdate(prevProps) {
@@ -52,7 +52,7 @@ class PetCard extends Component {
 		const { petList } = this.state
 
 		return (
-			<Card size="lg" buttonText="Next" title="VISIT A PET" type="pet">
+			<Card title="VISIT A PET" type="pet">
 				{petList.map(
 					(item, idx) =>
 						item.photos?.[0]?.medium && (

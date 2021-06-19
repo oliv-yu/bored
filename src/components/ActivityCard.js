@@ -13,7 +13,7 @@ function ActivityCard() {
 			.catch(console.log)
 	}
 	return (
-		<Card size="lg" title="DO SOMETHING">
+		<Card title="DO SOMETHING">
 			<p className="App-card-text card-text">{activity}</p>
 
 			<button onClick={_handleFetchActivity} className="btn btn-primary btn-sm">

@@ -4,6 +4,8 @@ import axios from 'axios'
 import ActivityCard from './components/ActivityCard'
 import BusinessCard from './components/BusinessCard'
 import PetCard from './components/PetCard'
+import WeatherCard from './components/WeatherCard'
+import moment from 'moment'
 import { getCurrentPosition } from './components/utils/utils'
 import { CORS_PROXY } from './components/utils/constants'
 
@@ -93,6 +95,14 @@ function Bored() {
 
 			<div className="bored-body">
 				<div className="bored-search">
+					<div className="todays-date">
+						<h4>
+							<strong>
+								{moment().format('dddd')}, {moment().format('LL')}
+							</strong>
+						</h4>
+					</div>
+
 					<button
 						onClick={_setCurrentLocation}
 						className="btn btn-primary btn-sm"
@@ -139,6 +149,8 @@ function Bored() {
 				</div>
 
 				<ActivityCard />
+
+				<WeatherCard location={location} />
 
 				<PetCard location={location} />
 

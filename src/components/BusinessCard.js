@@ -24,11 +24,11 @@ function BusinessCard({ location }) {
 			.then((result) => {
 				setBusinesses(result.data.businesses)
 			})
-			.catch(console.log)
+			.catch((error) => console.log(error))
 	}
 
 	return (
-		<Card type="business" size="lg" title="GO SOMEWHERE">
+		<Card type="business" title="GO SOMEWHERE">
 			<DisplayMap
 				center={location}
 				markers={businesses.map((item) => ({

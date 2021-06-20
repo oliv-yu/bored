@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Card from './shared/Card'
+import moment from 'moment'
 const axios = require('axios')
 
 function WeatherCard({ location }) {
 	const [weather, setWeather] = useState({})
+	const [time, setTime] = useState(moment.utc())
 
 	const getForecast = () => {
 		axios
@@ -22,10 +24,21 @@ function WeatherCard({ location }) {
 				console.log(error)
 			})
 	}
+	const tick = () => {
+		setTime(moment.utc())
+	}
 
 	useEffect(() => {
 		getForecast()
 	}, [location]) //eslint-disable-line
+
+	useEffect(() => {
+		const timerID = setInterval(() => tick(), 1000)
+
+		return function cleanup() {
+			clearInterval(timerID)
+		}
+	})
 
 	return (
 		<Card title="TALK ABOUT THE WEATHER" type="weather">
@@ -42,6 +55,12 @@ function WeatherCard({ location }) {
 								{weather.name} - {weather.main.temp} F
 							</span>
 						</h5>
+
+						<h4>
+							{time
+								.utcOffset(weather.timezone / 3600)
+								.format('MMM DD YYYY hh:mm:ss A')}
+						</h4>
 
 						<div className="card-text">
 							<div>Feels like: {weather.main.feels_like}</div>

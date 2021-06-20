@@ -6,7 +6,6 @@ import BusinessCard from './components/BusinessCard'
 import PetCard from './components/PetCard'
 import WeatherCard from './components/WeatherCard'
 import moment from 'moment'
-import { getCurrentPosition } from './components/utils/utils'
 import { CORS_PROXY } from './components/utils/constants'
 
 function Bored() {
@@ -15,15 +14,16 @@ function Bored() {
 	const [autocompleteList, setAutocompleteList] = useState([])
 	const [focus, setFocus] = useState(-1)
 
-	const _setCurrentLocation = async () => {
-		try {
-			const { coords } = await getCurrentPosition()
-
-			setLocation({ lat: coords.latitude, lng: coords.longitude })
-			setKeyword('Current Location')
-		} catch (error) {
-			console.log(error)
-		}
+	const _setCurrentLocation = () => {
+		navigator.geolocation.getCurrentPosition(
+			({ coords }) => {
+				setLocation({ lat: coords.latitude, lng: coords.longitude })
+				setKeyword('Current Location')
+			},
+			(error) => {
+				console.log(error)
+			}
+		)
 	}
 
 	const _getAutocomplete = (keyword) => {

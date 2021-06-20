@@ -34,7 +34,7 @@ function WeatherCard({ location }) {
 					<div className="card-body">
 						<h5 className="card-title">
 							<img
-								src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
+								src={`https://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
 								alt={weather.weather[0].description}
 								title={weather.weather[0].main}
 							/>
@@ -46,7 +46,7 @@ function WeatherCard({ location }) {
 						<div className="card-text">
 							<div>Feels like: {weather.main.feels_like}</div>
 							<div>Humidity: {weather.main.humidity}%</div>
-							<div>Wind: {weather.wind.gust} mph</div>
+							<div>Wind: {weather.wind.speed} mph</div>
 						</div>
 					</div>
 				</div>

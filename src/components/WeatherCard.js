@@ -53,7 +53,7 @@ function WeatherCard({ location }) {
 								title={weather.weather[0].main}
 							/>
 							<span>
-								{weather.name} - {weather.main.temp} F
+								{weather.name}, {weather.sys.country} - {weather.main.temp} F
 							</span>
 						</h5>
 

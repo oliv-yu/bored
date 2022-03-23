@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from './shared/Card'
 import DisplayMap from './shared/DisplayMap'
 import axios from 'axios'
@@ -26,6 +26,10 @@ function BusinessCard({ location }) {
 			})
 			.catch((error) => console.log(error))
 	}
+
+	useEffect(() => {
+		setBusinesses([])
+	}, [location])
 
 	return (
 		<Card type="business" title="GO SOMEWHERE">

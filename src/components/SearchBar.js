@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { CORS_PROXY } from './utils/constants'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-function SearchBar({ onChangeLocation }) {
+function SearchBar({ location, onChangeLocation }) {
 	const [keyword, setKeyword] = useState('')
 	const [autocompleteList, setAutocompleteList] = useState([])
 	const [focus, setFocus] = useState(-1)
@@ -60,12 +60,15 @@ function SearchBar({ onChangeLocation }) {
 			})
 			.then((result) => {
 				onChangeLocation(result.data.position)
-				setKeyword(result.data.title)
 				setAutocompleteList([])
 				setFocus(-1)
 			})
 			.catch(console.log)
 	}
+
+	useEffect(() => {
+		setKeyword(`${location.lat},${location.lng}`)
+	}, [location])
 
 	return (
 		<div className="input-group mb-3">

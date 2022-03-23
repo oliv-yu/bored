@@ -57,7 +57,7 @@ function Bored() {
 
 				<PetCard location={location} />
 
-				<BusinessCard location={location} />
+				<BusinessCard location={location} onChangeLocation={setLocation} />
 			</div>
 		</div>
 	)

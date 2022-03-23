@@ -4,7 +4,7 @@ import DisplayMap from './shared/DisplayMap'
 import axios from 'axios'
 import { CORS_PROXY } from './utils/constants'
 
-function BusinessCard({ location }) {
+function BusinessCard({ location, onChangeLocation }) {
 	const [businesses, setBusinesses] = useState([])
 
 	const _getBusinesses = ({ lat, lng }) => {
@@ -28,7 +28,7 @@ function BusinessCard({ location }) {
 	}
 
 	useEffect(() => {
-		setBusinesses([])
+		_getBusinesses(location)
 	}, [location])
 
 	return (
@@ -44,7 +44,10 @@ function BusinessCard({ location }) {
 						`<div><img src=${item.image_url} class="business-img" alt="${item.name}"></div>` +
 						`<div><a class="business-title" href=${item.url} target="_blank" rel="noopener noreferrer">${item.name}</a></div>`,
 				}))}
-				refreshMarkers={_getBusinesses}
+				refreshMarkers={({ lat, lng }) => {
+					_getBusinesses({ lat, lng })
+					onChangeLocation({ lat, lng })
+				}}
 			/>
 
 			<div className="list-group">

@@ -6,8 +6,7 @@ import PetCard from './components/PetCard'
 import SearchBar from './components/SearchBar'
 import WeatherCard from './components/WeatherCard'
 import moment from 'moment'
-
-const DEFAULT_LOCATION = { lat: 40.75, lng: -73.98 }
+import { DEFAULT_LOCATION } from './components/utils/constants'
 
 function Bored() {
 	const [location, setLocation] = useState(DEFAULT_LOCATION)
@@ -33,11 +32,7 @@ function Bored() {
 			<div className="bored-body">
 				<div className="bored-search">
 					<div className="todays-date">
-						<h4>
-							<strong>
-								{moment().format('dddd')}, {moment().format('LL')}
-							</strong>
-						</h4>
+						{moment().format('dddd')}, {moment().format('LL')}
 					</div>
 
 					<button

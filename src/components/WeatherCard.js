@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Card from './shared/Card'
 import moment from 'moment'
 const axios = require('axios')
@@ -7,7 +7,7 @@ function WeatherCard({ location }) {
 	const [weather, setWeather] = useState({})
 	const [time, setTime] = useState(moment.utc())
 
-	const getForecast = () => {
+	const getForecast = useCallback(() => {
 		axios
 			.get('https://api.openweathermap.org/data/2.5/weather', {
 				params: {
@@ -23,14 +23,15 @@ function WeatherCard({ location }) {
 			.catch((error) => {
 				console.log(error)
 			})
-	}
+	}, [location])
+
 	const tick = () => {
 		setTime(moment.utc())
 	}
 
 	useEffect(() => {
 		getForecast()
-	}, [location]) //eslint-disable-line
+	}, [getForecast])
 
 	useEffect(() => {
 		const timerID = setInterval(() => tick(), 1000)
@@ -70,10 +71,6 @@ function WeatherCard({ location }) {
 					</div>
 				</div>
 			)}
-
-			<button type="button" className="btn btn-primary" onClick={getForecast}>
-				Check!
-			</button>
 		</Card>
 	)
 }

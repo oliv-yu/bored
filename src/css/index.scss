@@ -1,20 +1,121 @@
-body {
-	background-color: #dfdfdf;
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-		sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-		monospace;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
 @import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css');
+
 @import './variables.scss';
 
 @import './Bored.scss';
 @import './Card.scss';
+
+body {
+	background-color: $white;
+	color: $darkgrey;
+
+	.form-control {
+		border-color: $darkgrey;
+		background-color: unset;
+		color: unset;
+
+		&:focus {
+			background-color: unset;
+			color: unset;
+		}
+	}
+
+	.dropdown-menu {
+		background-color: $white;
+		border-color: $darkgrey;
+
+		.dropdown-item {
+			background-color: $white;
+			color: $darkgrey;
+
+			&.active {
+				background-color: $midgrey;
+				color: $white;
+			}
+		}
+	}
+
+	.btn {
+		background-color: unset;
+		border-color: $darkgrey;
+		color: unset;
+
+		&:hover {
+			background-color: $darkgrey;
+			color: $white;
+		}
+	}
+
+	.card {
+		background-color: unset;
+		border-color: $darkgrey;
+	}
+
+	.list-group-item {
+		background-color: unset;
+		border-color: $darkgrey;
+		color: unset;
+
+		&:hover {
+			background-color: $lightgrey;
+			color: unset;
+		}
+	}
+}
+
+body.dark-mode {
+	background-color: $darkgrey;
+	color: $white;
+
+	.form-control {
+		border-color: $white;
+	}
+
+	.dropdown-menu {
+		background-color: $darkgrey;
+		border-color: $white;
+		color: $white;
+
+		.dropdown-item {
+			background-color: $darkgrey;
+			color: $white;
+
+			&.active {
+				background-color: $white;
+				color: $darkgrey;
+			}
+		}
+	}
+
+	input {
+		background-color: unset;
+		color: unset;
+
+		&:focus {
+			background-color: $darkgrey;
+			color: $white;
+		}
+	}
+
+	.btn {
+		border-color: $white;
+
+		&:hover {
+			color: $darkgrey;
+			background-color: $white;
+		}
+	}
+
+	.card {
+		border-color: $white;
+	}
+
+	.list-group-item {
+		border-color: $white;
+
+		&:hover {
+			background-color: $midgrey;
+		}
+	}
+}

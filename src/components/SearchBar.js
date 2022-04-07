@@ -67,11 +67,11 @@ function SearchBar({ location, onChangeLocation }) {
 	}
 
 	useEffect(() => {
-		setKeyword(`${location.lat},${location.lng}`)
+		setKeyword('')
 	}, [location])
 
 	return (
-		<div className="input-group mb-3">
+		<div className="input-group mb-3 search-bar">
 			<div className="dropdown">
 				<input
 					type="text"

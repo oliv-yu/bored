@@ -1,38 +1,31 @@
 .card {
+	border-radius: 5px;
+	border: 1px solid;
 	margin: 10px auto 20px auto;
-
-	&.card-sm {
-		font-size: 20px;
-		width: 500px;
-	}
 
 	&.card-lg {
 		width: $lg-card-width;
 	}
 
+	.btn {
+		margin: 10px 0;
+	}
+
 	.card-title {
 		font-size: 25px;
-		font-weight: bold;
+		font-weight: $heavyweight;
+		margin-top: 3px;
 
 		a {
-			color: black;
+			color: unset;
 			text-decoration: none;
 		}
 	}
 }
 
 .business-card {
-	.btn-primary {
-		margin: 10px 0;
-	}
-
 	.business-img {
 		width: 150px;
-	}
-
-	.business-title {
-		color: black;
-		text-decoration: none;
 	}
 }
 

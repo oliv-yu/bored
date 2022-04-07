@@ -67,7 +67,7 @@ class DisplayMap extends Component {
 				/>
 
 				<button
-					className="btn btn-primary btn-sm"
+					className="btn btn-sm"
 					onClick={() => {
 						this.props.refreshMarkers(this.state.map.getCenter())
 					}}

@@ -89,7 +89,7 @@ class PetCard extends Component {
 							this._getAnimals()
 							this.setState((state) => ({ page: state.page + 1 }))
 						}}
-						className="btn btn-primary btn-sm"
+						className="btn btn-sm"
 					>
 						Find a buddy!
 					</button>

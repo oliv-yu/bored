@@ -22,12 +22,17 @@ function Bored() {
 		)
 	}
 
+	const _handleToggleMode = () => {
+		var element = document.body
+		element.classList.toggle('dark-mode')
+	}
+
 	return (
 		<div className="bored-app">
-			<header>
+			<div className="bored-header">
 				<img src={panda} alt="bored-panda" />
 				<span>Feeling Bored?</span>
-			</header>
+			</div>
 
 			<div className="bored-body">
 				<div className="bored-search">
@@ -35,20 +40,25 @@ function Bored() {
 						{moment().format('dddd')}, {moment().format('LL')}
 					</div>
 
-					<button
-						onClick={_setCurrentLocation}
-						className="btn btn-primary btn-sm"
-					>
+					<SearchBar location={location} onChangeLocation={setLocation} />
+
+					<button onClick={_setCurrentLocation} className="btn btn-sm">
 						<i className="bi bi-geo-alt"></i>
 						Use Current Location
 					</button>
 
-					<SearchBar location={location} onChangeLocation={setLocation} />
+					<button
+						onClick={_handleToggleMode}
+						style={{ marginLeft: '10px' }}
+						className="btn btn-sm"
+					>
+						Switch Theme Mode
+					</button>
 				</div>
 
-				<ActivityCard />
-
 				<WeatherCard location={location} />
+
+				<ActivityCard />
 
 				<PetCard location={location} />
 

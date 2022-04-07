@@ -44,9 +44,9 @@ function WeatherCard({ location }) {
 	return (
 		<Card title="TALK ABOUT THE WEATHER" type="weather">
 			{weather.main?.temp && (
-				<div className="card" style={{ width: '400px' }}>
-					<div className="card-body">
-						<h5 className="card-title">
+				<div>
+					<div>
+						<h4>
 							<img
 								src={`https://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
 								alt={weather.weather[0].description}
@@ -55,13 +55,13 @@ function WeatherCard({ location }) {
 							<span>
 								{weather.name}, {weather.sys.country} - {weather.main.temp} F
 							</span>
-						</h5>
+						</h4>
 
-						<h4>
+						<h5>
 							{time
 								.utcOffset(weather.timezone / 3600)
 								.format('MMM DD YYYY hh:mm:ss A')}
-						</h4>
+						</h5>
 
 						<div className="card-text">
 							<div>Feels like: {weather.main.feels_like}</div>

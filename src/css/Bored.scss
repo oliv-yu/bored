@@ -1,14 +1,15 @@
 .bored-app {
 	text-align: center;
-	font-family: 'Noto Sans', sans-serif;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: $normalweight;
 
-	header {
-		align-items: center;
-		color: #000000;
+	.bored-header {
 		font-size: 40px;
-		font-weight: bold;
-		justify-content: center;
-		margin: 20px 0;
+		font-weight: $heavyweight;
+		margin: 0 auto;
+		padding-top: 7%;
+		text-align: left;
+		width: $lg-card-width;
 
 		img {
 			height: 50px;
@@ -27,31 +28,29 @@
 			margin-bottom: 10px;
 		}
 
-		.dropdown {
-			width: 100%;
+		.todays-date {
+			font-size: 24px;
+			font-weight: $normalweight;
+			padding: 10px 0;
+			text-align: right;
+		}
 
-			&:focus-within {
-				.dropdown-menu {
-					display: block;
-				}
-			}
-
-			.dropdown-menu {
-				display: none;
+		.search-bar {
+			.dropdown {
 				width: 100%;
 
-				.dropdown-item.active {
-					background-color: #e9ecef;
-					color: #1e2125;
+				&:focus-within {
+					.dropdown-menu {
+						display: block;
+					}
+				}
+
+				.dropdown-menu {
+					display: none;
+					width: 100%;
 				}
 			}
 		}
-	}
-
-	.todays-date {
-		font-size: 24px;
-		font-weight: 600;
-		padding: 10px 0;
 	}
 }
 

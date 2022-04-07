@@ -16,7 +16,7 @@ function ActivityCard() {
 		<Card title="DO SOMETHING">
 			<p className="App-card-text card-text">{activity}</p>
 
-			<button onClick={_handleFetchActivity} className="btn btn-primary btn-sm">
+			<button onClick={_handleFetchActivity} className="btn btn-sm">
 				Next
 			</button>
 		</Card>

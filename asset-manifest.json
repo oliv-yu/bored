@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/bored/static/css/main.c585afae.chunk.css",
+    "main.css": "/bored/static/css/main.4df4b6ed.chunk.css",
     "main.js": "/bored/static/js/main.38978526.chunk.js",
     "main.js.map": "/bored/static/js/main.38978526.chunk.js.map",
     "runtime-main.js": "/bored/static/js/runtime-main.d57138fa.js",
@@ -8,14 +8,14 @@
     "static/js/2.6918158a.chunk.js": "/bored/static/js/2.6918158a.chunk.js",
     "static/js/2.6918158a.chunk.js.map": "/bored/static/js/2.6918158a.chunk.js.map",
     "index.html": "/bored/index.html",
-    "static/css/main.c585afae.chunk.css.map": "/bored/static/css/main.c585afae.chunk.css.map",
+    "static/css/main.4df4b6ed.chunk.css.map": "/bored/static/css/main.4df4b6ed.chunk.css.map",
     "static/js/2.6918158a.chunk.js.LICENSE.txt": "/bored/static/js/2.6918158a.chunk.js.LICENSE.txt",
     "static/media/panda.7b470ddb.png": "/bored/static/media/panda.7b470ddb.png"
   },
   "entrypoints": [
     "static/js/runtime-main.d57138fa.js",
     "static/js/2.6918158a.chunk.js",
-    "static/css/main.c585afae.chunk.css",
+    "static/css/main.4df4b6ed.chunk.css",
     "static/js/main.38978526.chunk.js"
   ]
 }

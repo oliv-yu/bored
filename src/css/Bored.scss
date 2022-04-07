@@ -2,14 +2,14 @@
 	text-align: center;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: $normalweight;
+	margin: 0 auto;
+	max-width: $lg-card-width;
 
 	.bored-header {
 		font-size: 40px;
 		font-weight: $heavyweight;
-		margin: 0 auto;
-		padding-top: 7%;
+		padding-top: 10%;
 		text-align: left;
-		width: $lg-card-width;
 
 		img {
 			height: 50px;
@@ -22,7 +22,6 @@
 
 	.bored-search {
 		margin: auto;
-		width: $lg-card-width;
 
 		.btn {
 			margin-bottom: 10px;
@@ -56,17 +55,13 @@
 
 @media only screen and (max-width: 600px) {
 	.bored-app {
-		header {
+		.bored-header {
 			font-size: 32px;
-			margin: 10px 0;
+			margin: 0 20px;
 		}
 
 		.bored-body {
-			margin: 10px;
-		}
-
-		.bored-search {
-			max-width: 100%;
+			margin: 20px;
 		}
 	}
 }

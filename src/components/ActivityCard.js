@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import Card from './shared/Card'
 
 function ActivityCard() {
-	const [activity, setActivity] = useState()
+	const [activity, setActivity] = useState(
+		'Click on Next to get a random activity.'
+	)
 
 	const _handleFetchActivity = () => {
 		fetch('https://www.boredapi.com/api/activity')

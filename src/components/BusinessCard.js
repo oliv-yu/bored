@@ -10,9 +10,7 @@ function BusinessCard({ location, onChangeLocation }) {
 		axios
 			.request({
 				method: 'GET',
-				// for local development `lcp --proxyUrl https://api.yelp.com/` to avoid CORS issue
-				// url: 'http://localhost:8010/proxy/v3/businesses/search',
-				url: 'https://api.yelp.com/v3/businesses/search',
+				url: '/v3/businesses/search',
 				params: {
 					sort_by: 'best_match',
 					limit: '10',

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import panda from './img/panda.png'
 import ActivityCard from './components/ActivityCard'
 import BusinessCard from './components/BusinessCard'
 import SearchBar from './components/SearchBar'
@@ -29,7 +28,6 @@ function Bored() {
 	return (
 		<div className="bored-app">
 			<div className="bored-header">
-				<img src={panda} alt="bored-panda" />
 				<span>Feeling Bored?</span>
 			</div>
 

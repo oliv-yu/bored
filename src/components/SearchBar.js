@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { CORS_PROXY } from './utils/constants'
 import { useEffect, useState } from 'react'
 
 function SearchBar({ location, onChangeLocation }) {
@@ -9,17 +8,15 @@ function SearchBar({ location, onChangeLocation }) {
 
 	const _getAutocomplete = (keyword) => {
 		axios
-			.get(
-				`${CORS_PROXY}https://autocomplete.search.hereapi.com/v1/autocomplete`,
-				{
-					params: {
-						apiKey: `${process.env.REACT_APP_HERE_API_KEY}`,
-						q: keyword,
-					},
-					mode: 'cors',
-					credentials: 'include',
-				}
-			)
+			.get(`https://autocomplete.search.hereapi.com/v1/autocomplete`, {
+				params: {
+					app_id: `${process.env.REACT_APP_HERE_APP_ID}`,
+					apiKey: `${process.env.REACT_APP_HERE_API_KEY}`,
+					q: keyword,
+				},
+				mode: 'cors',
+				credentials: 'include',
+			})
 			.then((result) => {
 				setAutocompleteList(result.data.items)
 			})
@@ -50,8 +47,9 @@ function SearchBar({ location, onChangeLocation }) {
 
 	const _handleOnClickCity = (id) => {
 		axios
-			.get(`${CORS_PROXY}https://lookup.search.hereapi.com/v1/lookup`, {
+			.get(`https://lookup.search.hereapi.com/v1/lookup`, {
 				params: {
+					app_id: `${process.env.REACT_APP_HERE_APP_ID}`,
 					apiKey: `${process.env.REACT_APP_HERE_API_KEY}`,
 					id,
 				},

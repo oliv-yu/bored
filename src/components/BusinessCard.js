@@ -2,29 +2,35 @@ import React, { useEffect, useState } from 'react'
 import Card from './shared/Card'
 import DisplayMap from './shared/DisplayMap'
 import axios from 'axios'
-import { CORS_PROXY } from './utils/constants'
 
 function BusinessCard({ location, onChangeLocation }) {
 	const [businesses, setBusinesses] = useState([])
 
 	const _getBusinesses = ({ lat, lng }) => {
 		axios
-			.get(`${CORS_PROXY}https://api.yelp.com/v3/businesses/search`, {
-				headers: {
-					Authorization: `Bearer ${process.env.REACT_APP_YELP_API_KEY}`,
-				},
+			.request({
+				method: 'GET',
+				// for local development `lcp --proxyUrl https://api.yelp.com/` to avoid CORS issue
+				// url: 'http://localhost:8010/proxy/v3/businesses/search',
+				url: 'https://api.yelp.com/v3/businesses/search',
 				params: {
+					sort_by: 'best_match',
+					limit: '10',
 					latitude: lat,
 					longitude: lng,
-					limit: 10,
 				},
-				mode: 'cors',
-				credentials: 'include',
+				headers: {
+					accept: 'application/json',
+					Authorization: 'Bearer ' + process.env.REACT_APP_YELP_API_KEY,
+					'Access-Control-Allow-Origin': '*',
+				},
 			})
-			.then((result) => {
-				setBusinesses(result.data.businesses)
+			.then(function (response) {
+				setBusinesses(response.data.businesses)
 			})
-			.catch((error) => console.log(error))
+			.catch(function (error) {
+				console.error(error)
+			})
 	}
 
 	useEffect(() => {

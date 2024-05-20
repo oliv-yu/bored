@@ -12,6 +12,7 @@ class DisplayMap extends Component {
 	generateMap() {
 		const H = window.H
 		const platform = new H.service.Platform({
+			apiId: `${process.env.REACT_APP_HERE_APP_ID}`,
 			apikey: `${process.env.REACT_APP_HERE_API_KEY}`,
 		})
 

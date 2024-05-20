@@ -1,21 +1,20 @@
 {
   "files": {
-    "main.css": "/bored/static/css/main.4df4b6ed.chunk.css",
-    "main.js": "/bored/static/js/main.38978526.chunk.js",
-    "main.js.map": "/bored/static/js/main.38978526.chunk.js.map",
+    "main.css": "/bored/static/css/main.5556c521.chunk.css",
+    "main.js": "/bored/static/js/main.7dda3bea.chunk.js",
+    "main.js.map": "/bored/static/js/main.7dda3bea.chunk.js.map",
     "runtime-main.js": "/bored/static/js/runtime-main.d57138fa.js",
     "runtime-main.js.map": "/bored/static/js/runtime-main.d57138fa.js.map",
-    "static/js/2.6918158a.chunk.js": "/bored/static/js/2.6918158a.chunk.js",
-    "static/js/2.6918158a.chunk.js.map": "/bored/static/js/2.6918158a.chunk.js.map",
+    "static/js/2.b5b5a502.chunk.js": "/bored/static/js/2.b5b5a502.chunk.js",
+    "static/js/2.b5b5a502.chunk.js.map": "/bored/static/js/2.b5b5a502.chunk.js.map",
     "index.html": "/bored/index.html",
-    "static/css/main.4df4b6ed.chunk.css.map": "/bored/static/css/main.4df4b6ed.chunk.css.map",
-    "static/js/2.6918158a.chunk.js.LICENSE.txt": "/bored/static/js/2.6918158a.chunk.js.LICENSE.txt",
-    "static/media/panda.7b470ddb.png": "/bored/static/media/panda.7b470ddb.png"
+    "static/css/main.5556c521.chunk.css.map": "/bored/static/css/main.5556c521.chunk.css.map",
+    "static/js/2.b5b5a502.chunk.js.LICENSE.txt": "/bored/static/js/2.b5b5a502.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d57138fa.js",
-    "static/js/2.6918158a.chunk.js",
-    "static/css/main.4df4b6ed.chunk.css",
-    "static/js/main.38978526.chunk.js"
+    "static/js/2.b5b5a502.chunk.js",
+    "static/css/main.5556c521.chunk.css",
+    "static/js/main.7dda3bea.chunk.js"
   ]
 }

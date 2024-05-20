@@ -1,16 +1,11 @@
 ## Set up API tokens
 
-In order to have the APIs work, you need the tokens inside your .env file, placed in the root directory: `REACT_APP_HERE_API_KEY`, `REACT_APP_YELP_API_KEY`, `REACT_APP_PETFINDER_ACCESS_TOKEN`
+In order to have the APIs work, you need the tokens inside your .env file, placed in the root directory: `REACT_APP_HERE_API_KEY`, `REACT_APP_HERE_APP_ID`, `REACT_APP_YELP_API_KEY`
 
 Note: each variable needs to start with `REACT_APP` for it to work.
 
-- HERE Maps: https://developer.here.com/tutorials/react/
-- Yelp: https://www.yelp.com/developers/documentation/v3/get_started
-- Petfinder: https://www.petfinder.com/developers/v2/docs/
-
-Petfinder's Access Token can be requested after receiving a client ID and client secret. Note that Access Tokens last about one hour.
-
-`curl -d "grant_type=client_credentials&client_id={CLIENT-ID}&client_secret={CLIENT-SECRET}" https://api.petfinder.com/v2/oauth2/token`
+- HERE Maps: https://www.here.com/docs/bundle/maps-api-for-javascript-developer-guide/page/README.html
+- Yelp: https://docs.developer.yelp.com/docs/fusion-intro
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

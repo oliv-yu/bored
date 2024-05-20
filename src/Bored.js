@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import panda from './img/panda.png'
 import ActivityCard from './components/ActivityCard'
 import BusinessCard from './components/BusinessCard'
-import PetCard from './components/PetCard'
 import SearchBar from './components/SearchBar'
 import WeatherCard from './components/WeatherCard'
 import moment from 'moment'
@@ -59,8 +58,6 @@ function Bored() {
 				<WeatherCard location={location} />
 
 				<ActivityCard />
-
-				<PetCard location={location} />
 
 				<BusinessCard location={location} onChangeLocation={setLocation} />
 			</div>

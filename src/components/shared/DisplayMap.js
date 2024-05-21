@@ -124,7 +124,34 @@ function addInfoBubbles(map, markers, ui) {
 		false
 	)
 
-	markers.forEach((item, idx) => {
+	const newMarkersNoOverlap = []
+
+	// Data will give overlapping coordinates, so tweak position
+	markers.forEach((value, index) => {
+		const coordinate = {
+			lat: markers[index].coordinate.lat,
+			lng: markers[index].coordinate.lng,
+		}
+
+		for (let i = index + 1; i < markers.length; i++) {
+			if (
+				value.coordinate.lat === markers[i].coordinate.lat &&
+				value.coordinate.lng === markers[i].coordinate.lng
+			) {
+				coordinate.lat += 0.00001
+				coordinate.lng += 0.00001
+			}
+		}
+
+		newMarkersNoOverlap[index] = {
+			...markers[index],
+			coordinate,
+		}
+	})
+
+	console.log(newMarkersNoOverlap)
+
+	newMarkersNoOverlap.forEach((item, idx) => {
 		addMarkerToGroup(group, item.coordinate, item.html, idx + 1)
 	})
 }

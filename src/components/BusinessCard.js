@@ -5,29 +5,28 @@ import axios from 'axios'
 
 function BusinessCard({ location, onChangeLocation }) {
 	const [businesses, setBusinesses] = useState([])
+	const [error, setError] = useState('')
 
 	const _getBusinesses = ({ lat, lng }) => {
 		axios
 			.request({
 				method: 'GET',
-				url: '/v3/businesses/search',
+				url: 'https://discover.search.hereapi.com/v1/discover',
 				params: {
-					sort_by: 'best_match',
-					limit: '10',
-					latitude: lat,
-					longitude: lng,
-				},
-				headers: {
-					accept: 'application/json',
-					Authorization: 'Bearer ' + process.env.REACT_APP_YELP_API_KEY,
-					'Access-Control-Allow-Origin': '*',
+					at: `${lat},${lng}`,
+					app_id: `${process.env.REACT_APP_HERE_APP_ID}`,
+					apiKey: `${process.env.REACT_APP_HERE_API_KEY}`,
+					limit: '5',
+					q: 'restaurant',
 				},
 			})
 			.then(function (response) {
-				setBusinesses(response.data.businesses)
+				setBusinesses(response.data.items)
+				setError('')
 			})
 			.catch(function (error) {
 				console.error(error)
+				setError(error.message || 'Unknown error')
 			})
 	}
 
@@ -41,12 +40,10 @@ function BusinessCard({ location, onChangeLocation }) {
 				center={location}
 				markers={businesses.map((item) => ({
 					coordinate: {
-						lat: item.coordinates.latitude,
-						lng: item.coordinates.longitude,
+						lat: item.position.lat,
+						lng: item.position.lng,
 					},
-					html:
-						`<div><img src=${item.image_url} class="business-img" alt="${item.name}"></div>` +
-						`<div><a class="business-title" href=${item.url} target="_blank" rel="noopener noreferrer">${item.name}</a></div>`,
+					html: `<div>${item.title}</div>`,
 				}))}
 				refreshMarkers={({ lat, lng }) => {
 					_getBusinesses({ lat, lng })
@@ -54,36 +51,46 @@ function BusinessCard({ location, onChangeLocation }) {
 				}}
 			/>
 
-			<div className="list-group">
-				{businesses.map((business, index) => {
-					return (
-						<a
-							href={business.url}
-							target="_blank"
-							className="App-card-text list-group-item list-group-item-action flex-column align-items-start"
-							key={index}
-							rel="noopener noreferrer"
-						>
-							<div className="d-flex w-100 justify-content-between">
-								<h5 className="mb-1">
-									{index + 1}. {business.name}
-								</h5>
-								<small>{business.price}</small>
-							</div>
-							<div className="d-flex w-100 justify-content-between">
-								<p className="mb-1">
-									{business.location.display_address.join(', ')}
-								</p>
-								<small>
-									{business.categories
-										.reduce((acc, curr) => [curr.title, ...acc], [])
-										.join(', ')}
-								</small>
-							</div>
-						</a>
-					)
-				})}
-			</div>
+			{error ? (
+				<div className="list-group">
+					<div className="list-group-item list-group-item-action flex-column align-items-start">
+						<div className="w-100 justify-content-between">
+							<h5 className="mb-1">
+								Oh no! Businesses cannot load at this time.
+							</h5>
+							<div className="mb-1">{error}</div>
+						</div>
+					</div>
+				</div>
+			) : (
+				<div className="list-group">
+					{businesses.map((business, index) => {
+						return (
+							<a
+								href={business.contacts?.[0]?.www?.[0]?.value}
+								target="_blank"
+								className="list-group-item list-group-item-action flex-column align-items-start"
+								key={index}
+								rel="noopener noreferrer"
+							>
+								<div className="d-flex w-100 justify-content-between">
+									<h5 className="mb-1">
+										{index + 1}. {business.title}
+									</h5>
+								</div>
+								<div className="d-flex w-100 justify-content-between">
+									<p className="mb-1 text-start">{business.address.label}</p>
+									<small className="text-end">
+										{business.categories
+											.reduce((acc, curr) => [curr.name, ...acc], [])
+											.join(', ')}
+									</small>
+								</div>
+							</a>
+						)
+					})}
+				</div>
+			)}
 		</Card>
 	)
 }

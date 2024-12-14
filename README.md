@@ -1,12 +1,12 @@
 ## Set up API tokens
 
-In order to have the APIs work, you need the tokens inside your .env file, placed in the root directory: `REACT_APP_HERE_API_KEY`, `REACT_APP_HERE_APP_ID`
+In order to have the APIs work, you need the tokens inside your .env file, placed in the root directory: 
 
-Note: each variable needs to start with `REACT_APP` for it to work.
+- `REACT_APP_HERE_API_KEY`, `REACT_APP_HERE_APP_ID`
+  - HERE Maps: https://www.here.com/docs/bundle/identity-and-access-management-developer-guide/page/topics/plat-using-apikeys.html 
+- `REACT_APP_WEATHER_API_KEY`
+  - Open Weather Map: https://home.openweathermap.org/api_keys 
 
-- HERE Maps: https://www.here.com/docs/bundle/maps-api-for-javascript-developer-guide/page/README.html
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Deploy to gh-pages
 

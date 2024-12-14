@@ -1,20 +1,13 @@
 {
   "files": {
-    "main.css": "/bored/static/css/main.2c3bdc4f.chunk.css",
-    "main.js": "/bored/static/js/main.4be93ab3.chunk.js",
-    "main.js.map": "/bored/static/js/main.4be93ab3.chunk.js.map",
-    "runtime-main.js": "/bored/static/js/runtime-main.d57138fa.js",
-    "runtime-main.js.map": "/bored/static/js/runtime-main.d57138fa.js.map",
-    "static/js/2.e56a706c.chunk.js": "/bored/static/js/2.e56a706c.chunk.js",
-    "static/js/2.e56a706c.chunk.js.map": "/bored/static/js/2.e56a706c.chunk.js.map",
+    "main.css": "/bored/static/css/main.6932b45d.css",
+    "main.js": "/bored/static/js/main.7f10bb12.js",
     "index.html": "/bored/index.html",
-    "static/css/main.2c3bdc4f.chunk.css.map": "/bored/static/css/main.2c3bdc4f.chunk.css.map",
-    "static/js/2.e56a706c.chunk.js.LICENSE.txt": "/bored/static/js/2.e56a706c.chunk.js.LICENSE.txt"
+    "main.6932b45d.css.map": "/bored/static/css/main.6932b45d.css.map",
+    "main.7f10bb12.js.map": "/bored/static/js/main.7f10bb12.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.d57138fa.js",
-    "static/js/2.e56a706c.chunk.js",
-    "static/css/main.2c3bdc4f.chunk.css",
-    "static/js/main.4be93ab3.chunk.js"
+    "static/css/main.6932b45d.css",
+    "static/js/main.7f10bb12.js"
   ]
 }

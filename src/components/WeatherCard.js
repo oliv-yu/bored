@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import Card from './shared/Card'
 import moment from 'moment'
-const axios = require('axios')
+import axios from 'axios'
 
 function WeatherCard({ location }) {
 	const [weather, setWeather] = useState({})

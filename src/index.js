@@ -1,10 +1,14 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import './css/index.scss'
 import Bored from './Bored'
 import * as serviceWorker from './serviceWorker'
+import { createRoot } from 'react-dom/client'
 
-ReactDOM.render(<Bored />, document.getElementById('root'))
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <Bored />
+);
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

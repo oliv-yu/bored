@@ -1,10 +1,16 @@
+@use "sass:meta";
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
 @import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css');
 
-@import './variables.scss';
+@include meta.load-css('Bored.scss');
+@include meta.load-css('Card.scss');
 
-@import './Bored.scss';
-@import './Card.scss';
+$white: #fefefe;
+$lightgrey: #e9ecef;
+$midgrey: #424242;
+$darkgrey: #232323;
+
 
 body {
 	background-color: $white;

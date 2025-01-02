@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/bored/static/css/main.6932b45d.css",
-    "main.js": "/bored/static/js/main.7f10bb12.js",
+    "main.js": "/bored/static/js/main.d1d26bcc.js",
     "index.html": "/bored/index.html",
     "main.6932b45d.css.map": "/bored/static/css/main.6932b45d.css.map",
-    "main.7f10bb12.js.map": "/bored/static/js/main.7f10bb12.js.map"
+    "main.d1d26bcc.js.map": "/bored/static/js/main.d1d26bcc.js.map"
   },
   "entrypoints": [
     "static/css/main.6932b45d.css",
-    "static/js/main.7f10bb12.js"
+    "static/js/main.d1d26bcc.js"
   ]
 }
